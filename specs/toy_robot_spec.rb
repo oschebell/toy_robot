@@ -47,3 +47,21 @@ RSpec.describe ToyRobot, "#move" do
       expect(toy_robot.report).to eq("0, 0, WEST")
     end
 end
+
+RSpec.describe ToyRobot, "#left" do
+    it "will turn the robot 90 degrees left" do
+      toy_robot = ToyRobot.new
+      toy_robot.place(0, 0, "NORTH")
+      toy_robot.left
+      expect(toy_robot.report).to eq("0, 0, WEST")
+    end
+end
+
+RSpec.describe ToyRobot, "#right" do
+    it "will turn the robot 90 degrees right" do
+      toy_robot = ToyRobot.new
+      toy_robot.place(0, 0, "NORTH")
+      toy_robot.right
+      expect(toy_robot.report).to eq("0, 0, EAST")
+    end
+end

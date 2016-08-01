@@ -1,4 +1,5 @@
 require_relative '../toy_robot'
+require_relative '../table'
 
 RSpec.describe ToyRobot, "#place" do
   context "with valid coordinates" do
@@ -6,6 +7,16 @@ RSpec.describe ToyRobot, "#place" do
       toy_robot = ToyRobot.new
       toy_robot.place(0, 0, "NORTH")
       expect(toy_robot.report).to eq("0, 0, NORTH")
+    end
+  end
+end
+
+RSpec.describe ToyRobot, "#place" do
+  context "with invalid coordinates" do
+    it "will not place the robot on the table" do
+      toy_robot = ToyRobot.new
+      toy_robot.place(0, 6, "NORTH")
+      expect(toy_robot.report).not_to eq("0, 6, NORTH")
     end
   end
 end

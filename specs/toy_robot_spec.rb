@@ -1,6 +1,7 @@
 require_relative '../toy_robot'
 require_relative '../table'
 
+#valid placement
 RSpec.describe ToyRobot, "#place" do
   context "with valid coordinates" do
     it "will place the robot on the board at given coordinates" do
@@ -11,6 +12,7 @@ RSpec.describe ToyRobot, "#place" do
   end
 end
 
+#invalid placement
 RSpec.describe ToyRobot, "#place" do
   context "with invalid coordinates" do
     it "will not place the robot on the table" do
@@ -21,6 +23,7 @@ RSpec.describe ToyRobot, "#place" do
   end
 end
 
+#report
 RSpec.describe ToyRobot, "#report" do
   it "will print coordinates and direction" do
     toy_robot = ToyRobot.new
@@ -29,6 +32,7 @@ RSpec.describe ToyRobot, "#report" do
   end
 end
 
+#valid moves
 RSpec.describe ToyRobot, "#move" do
     it "will move the robot 1 unit north" do
       toy_robot = ToyRobot.new
@@ -59,6 +63,39 @@ RSpec.describe ToyRobot, "#move" do
     end
 end
 
+#invalid moves
+RSpec.describe ToyRobot, "#move" do
+    it "will not move the robot if it will result in it falling" do
+      toy_robot = ToyRobot.new
+      toy_robot.place(0, 5, "NORTH")
+      toy_robot.move
+      expect(toy_robot.report).not_to eq("0, 6, NORTH")
+    end
+
+
+  it "will not move the robot if it will result in it falling" do
+    toy_robot = ToyRobot.new
+    toy_robot.place(5, 0, "EAST")
+    toy_robot.move
+    expect(toy_robot.report).not_to eq("6, 0, EAST")
+  end
+
+  it "will not move the robot if it will result in it falling" do
+    toy_robot = ToyRobot.new
+    toy_robot.place(0, 0, "SOUTH")
+    toy_robot.move
+    expect(toy_robot.report).not_to eq("0, -1, SOUTH")
+  end
+
+  it "will not move the robot if it will result in it falling" do
+    toy_robot = ToyRobot.new
+    toy_robot.place(0, 0, "WEST")
+    toy_robot.move
+    expect(toy_robot.report).not_to eq("-1, 0, WEST")
+  end
+end
+
+#turning
 RSpec.describe ToyRobot, "#left" do
     it "will turn the robot 90 degrees left" do
       toy_robot = ToyRobot.new

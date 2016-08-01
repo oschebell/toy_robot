@@ -22,13 +22,13 @@ toy_robot = ToyRobot.new
   end
 
   def move
-    if @direction == "EAST"
+    if @direction == "EAST" && (@x + 1 < 6 )
       @x = @x + 1
-    elsif @direction == "NORTH"
+    elsif @direction == "NORTH" && (@y + 1 < 6 )
       @y = @y + 1
-    elsif @direction == "SOUTH"
+    elsif @direction == "SOUTH" && (@y - 1 >= 0 )
       @y = @y - 1
-    elsif @direction == "WEST"
+    elsif @direction == "WEST" && (@x - 1 >= 0 )
       @x = @x - 1
     end
   end

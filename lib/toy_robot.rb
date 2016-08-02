@@ -14,7 +14,7 @@ class ToyRobot
 
   def move
     if @x == nil
-      p "You cannot move the robot until it has been placed."
+      p "You cannot issue commands until the robot has been placed."
     else
       if @direction == "EAST" && (@x + 1 < 6 )
         @x = @x + 1
@@ -31,15 +31,15 @@ class ToyRobot
   end
 
   def left
-    if @direction == "NORTH"
-      @direction = "WEST"
-    elsif @direction == "WEST"
-      @direction = "SOUTH"
-    elsif @direction == "SOUTH"
-      @direction = "EAST"
-    elsif @direction == "EAST"
-      @direction = "NORTH"
-    end
+      if @direction == "NORTH"
+        @direction = "WEST"
+      elsif @direction == "WEST"
+        @direction = "SOUTH"
+      elsif @direction == "SOUTH"
+        @direction = "EAST"
+      elsif @direction == "EAST"
+        @direction = "NORTH"
+      end
   end
 
   def right
@@ -55,29 +55,45 @@ class ToyRobot
   end
 end
 
-#a
-toy_robot = ToyRobot.new
-toy_robot.place(0, 0, "NORTH")
-toy_robot.move
-toy_robot.report
 
-#b
-toy_robot = ToyRobot.new
-toy_robot.place(0, 0, "NORTH")
-toy_robot.left
-toy_robot.report
-
-#c
-toy_robot = ToyRobot.new
-toy_robot.place(1, 2, "EAST")
-toy_robot.move
-toy_robot.move
-toy_robot.left
-toy_robot.move
-toy_robot.report
+#Sample tests
+# #a
+# toy_robot = ToyRobot.new
+# toy_robot.place(0, 0, "NORTH")
+# toy_robot.move
+# toy_robot.report
+#
+# #b
+# toy_robot = ToyRobot.new
+# toy_robot.place(0, 0, "NORTH")
+# toy_robot.left
+# toy_robot.report
+#
+# #c
+# toy_robot = ToyRobot.new
+# toy_robot.place(1, 2, "EAST")
+# toy_robot.move
+# toy_robot.move
+# toy_robot.left
+# toy_robot.move
+# toy_robot.report
+#
+# #d
+# toy_robot = ToyRobot.new
+# toy_robot.place(0, 5, "NORTH")
+# toy_robot.move
+# toy_robot.report
 
 #d
-toy_robot = ToyRobot.new
-toy_robot.place(0, 5, "NORTH")
-toy_robot.move
-toy_robot.report
+# toy_robot = ToyRobot.new
+# toy_robot.move
+# toy_robot.left
+# toy_robot.left
+# toy_robot.place(0, 0, "NORTH")
+# toy_robot.left
+# toy_robot.report
+# toy_robot.left
+# toy_robot.move
+# toy_robot.left
+# toy_robot.move
+# toy_robot.report
